@@ -3,6 +3,7 @@
   imports = [
     ./fonts.nix
     ./gnome.nix
+    ./themes.nix
   ];
   services.xserver = {
     enable = true;

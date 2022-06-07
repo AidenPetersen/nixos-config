@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
 {
+  imports = [
+    ./home-manager.nix
+  ];
+
   environment.systemPackages = with pkgs; [
     # Shell utilities
     moreutils
@@ -33,9 +37,6 @@
     exa
     bat
     neovim
-    
-    # Home manager
-    home-manager
     
     # Might use it someday
     nixops
