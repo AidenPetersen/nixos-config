@@ -22,7 +22,6 @@
     powertop
     
     # Dev environment
-    lorri
     direnv
     patchutils
     nix-index
