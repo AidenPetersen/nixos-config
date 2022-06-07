@@ -7,5 +7,6 @@ in {
     home = "/home/aidenp";
     description = "Aiden Petersen";
     extraGroups = groups.adminGroups ++ groups.desktopGroups;
+    shell = pkgs.fish;
   };
 }
