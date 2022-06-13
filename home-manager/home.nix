@@ -5,9 +5,10 @@ in {
   imports = [
     ./headless
     ./graphical
+    ./languages
   ];
   nixpkgs.config.allowUnfree = true;
-
+  
   programs.home-manager.enable = true;
 
   manual.manpages.enable = true;

@@ -23,6 +23,7 @@
     
     # Dev environment
     direnv
+    nix-direnv
     patchutils
     nix-index
     git

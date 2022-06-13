@@ -43,6 +43,10 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.utf8";
 
+  # Keep up to date
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.allowReboot = false;
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leavecatenate(variables, "bootdev", bootdev)

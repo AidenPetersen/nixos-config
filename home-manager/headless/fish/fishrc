@@ -1,7 +1,3 @@
-{ config, pkgs, ... }:
-{
-  programs.fish.enable = true;
-  programs.fish.interactiveShellInit = ''
 set -U fish_greeting ""
 # Colorscheme: Tomorrow Night Bright
 set -U fish_color_normal normal
@@ -152,12 +148,33 @@ function get_git_status -d "Gets the current git status"
    end
 end
 
+# Direnv Hook
 function fish_right_prompt -d "Prints right prompt"
   get_git_status
 end
 
-'';
-    programs.fish.shellAliases = {
-      vi = "nvim";
-    };
-}
+set -gx EDITOR nvim
+
+    function __direnv_export_eval --on-event fish_prompt;
+        "/nix/store/glg1asx2816i8kfc2xn8y5fblmj36ay6-direnv-2.31.0/bin/direnv" export fish | source;
+
+        if test "$direnv_fish_mode" != "disable_arrow";
+            function __direnv_cd_hook --on-variable PWD;
+                if test "$direnv_fish_mode" = "eval_after_arrow";
+                    set -g __direnv_export_again 0;
+                else;
+                    "/nix/store/glg1asx2816i8kfc2xn8y5fblmj36ay6-direnv-2.31.0/bin/direnv" export fish | source;
+                end;
+            end;
+        end;
+    end;
+
+    function __direnv_export_eval_2 --on-event fish_preexec;
+        if set -q __direnv_export_again;
+            set -e __direnv_export_again;
+            "/nix/store/glg1asx2816i8kfc2xn8y5fblmj36ay6-direnv-2.31.0/bin/direnv" export fish | source;
+            echo;
+        end;
+
+        functions --erase __direnv_cd_hook;
+    end;

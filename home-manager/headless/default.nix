@@ -1,10 +1,12 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./git.nix
-    ./fish.nix
+    ./git
+    ./fish
+    ./neovim
   ];
-  home.packages = [
-    pkgs.htop
+  home.packages = with pkgs; [
+    htop
+    fzf
   ];
 }
