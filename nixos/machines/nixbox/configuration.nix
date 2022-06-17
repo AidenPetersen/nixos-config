@@ -25,6 +25,7 @@
       # Services
       ../../modules/services/docker.nix
       ../../modules/services/syncthing.nix
+      ../../modules/services/ssh.nix
       
       # Nix config
       ../../modules/nix/config.nix
