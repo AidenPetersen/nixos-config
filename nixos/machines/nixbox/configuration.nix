@@ -21,6 +21,9 @@
       
       # Headless programs
       ../../modules/headless/packages.nix
+
+      # Select unstable programs
+      ../../modules/unstable
       
       # Services
       ../../modules/services/docker.nix
