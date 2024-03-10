@@ -18,4 +18,6 @@ in {
     username = "aidenp";
     homeDirectory = "/home/aidenp";
   };
+
+  home.stateVersion = "23.11";
 }

@@ -11,5 +11,8 @@
 
     # Rust
     rustup
+
+    # Python
+    python3
   ];
 }

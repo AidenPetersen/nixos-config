@@ -13,8 +13,12 @@
       ../../modules/users/users.nix
       
       # Nvidia drivers
-      ../../modules/hardware/nvidia.nix
+      # ../../modules/hardware/nvidia.nix
       
+      # AMD drivers
+      ../../modules/hardware/amd.nix
+	
+ 
       # Desktop and Gnome stuff
       ../../modules/graphical/desktop.nix
       ../../modules/graphical/packages.nix
@@ -27,8 +31,9 @@
       
       # Services
       ../../modules/services/docker.nix
-      ../../modules/services/syncthing.nix
-      ../../modules/services/ssh.nix
+      ../../modules/services/flatpak.nix
+      # ../../modules/services/syncthing.nix
+      # ../../modules/services/ssh.nix
       
       # Nix config
       ../../modules/nix/config.nix
@@ -37,8 +42,9 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
+  # Networking
+  networking.networkmanager.enable = true; # Enable network manager
   networking.hostName = "nixbox"; # Define your hostname.
 
   # Set your time zone.
@@ -57,5 +63,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.05"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 }

@@ -6,11 +6,7 @@
   ];
   
   nix = {
-    autoOptimiseStore = true;
-    
-    # Enable nix flakes
-    extraOptions = ''
-    experimental-features = nix-command flakes
-    '';
+    settings.auto-optimise-store = true;
+    settings.experimental-features = [ "nix-command" "flakes" ]; 
   };
 }

@@ -3,9 +3,6 @@ let
   unstable = import <nixpkgs> { config = { allowUnfree = true; }; };
 in {
   imports = [
-    ./theming
-    ./alacritty
-    ./discord
   ];
 
   home.packages = [

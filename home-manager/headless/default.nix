@@ -2,11 +2,13 @@
 {
   imports = [
     ./git
-    ./fish
-    ./neovim
+    ./zsh
   ];
   home.packages = with pkgs; [
     htop
     fzf
+    tmux
+    neovim
+    stow
   ];
 }

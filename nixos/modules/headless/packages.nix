@@ -14,6 +14,8 @@
     curl
     wget
     tree
+    nano
+    vim
 
     # admin utils
     lsb-release
@@ -34,11 +36,9 @@
     jq
     ripgrep
     fd
-    exa
+    eza
     bat
     neovim
-    
-    # Might use it someday
-    nixops
+    fzf
   ];
 }
