@@ -1,1 +1,4 @@
-home-manager switch -I /home/aidenp/config/home-manager/home.nix 
+rm -rf /home/aidenp/.config/home-manager
+cp -r /home/aidenp/config/home-manager /home/aidenp/.config/home-manager
+
+home-manager switch

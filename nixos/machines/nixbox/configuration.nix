@@ -32,6 +32,7 @@
       # Services
       ../../modules/services/docker.nix
       ../../modules/services/flatpak.nix
+      ../../modules/services/mullvad.nix
       # ../../modules/services/syncthing.nix
       # ../../modules/services/ssh.nix
       
