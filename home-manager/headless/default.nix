@@ -10,5 +10,8 @@
     tmux
     neovim
     stow
+    distrobox
+    ripgrep
+    fd
   ];
 }

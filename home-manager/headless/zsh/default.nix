@@ -11,5 +11,10 @@
       plugins = [ "git" ];
       theme = "clean";
     };
+  shellAliases = {
+    vi = "nvim";
+  };
+  # for direnv
+  initExtra = "eval \"$(direnv hook zsh)\"";
   };
 }

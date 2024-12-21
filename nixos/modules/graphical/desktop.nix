@@ -7,9 +7,11 @@
   ];
   services.xserver = {
     enable = true;
-    layout = "us";
-    xkbVariant = "";
-    xkbModel = "pc105";
+    xkb = {
+    	layout = "us";
+    	variant = "";
+	model = "pc105";
+    };
   };
   
   # Enable sound with pipewire.

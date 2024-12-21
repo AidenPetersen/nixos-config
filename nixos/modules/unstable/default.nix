@@ -1,8 +1,9 @@
 { config, pkgs, ... }:
 let
-  unstable = import <nixpkgs> { config = { allowUnfree = true; }; };
+  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in {
   environment.systemPackages = [
     unstable.thunderbird
+    unstable.btop
   ];
 }

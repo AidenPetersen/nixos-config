@@ -22,6 +22,7 @@
       # Desktop and Gnome stuff
       ../../modules/graphical/desktop.nix
       ../../modules/graphical/packages.nix
+      ../../modules/graphical/steam.nix
       
       # Headless programs
       ../../modules/headless/packages.nix
@@ -58,11 +59,17 @@
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false;
 
+  # library stuff
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    
+  ];
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leavecatenate(variables, "bootdev", bootdev)
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 }

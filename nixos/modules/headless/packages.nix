@@ -40,5 +40,8 @@
     bat
     neovim
     fzf
+
+    # docker
+    docker-compose
   ];
 }
