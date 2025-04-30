@@ -5,16 +5,6 @@ in {
   imports = [
   ];
 
-  # Emacs gcc
-  services.emacs.package = pkgs.emacs-unstable;
-  nixpkgs.overlays = [
-    (import (builtins.fetchTarball {
-      url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
-    }))
-  ];
-
-  #services.emacs.enable = true;
-
   home.packages = [
     pkgs.vscode
    
@@ -22,9 +12,9 @@ in {
 
     pkgs.gnome3.gnome-tweaks
     pkgs.nerdfonts
-    pkgs.emacs-git
 
-    # doom emacs
+    pkgs.libvterm
+
     pkgs.binutils
     pkgs.imagemagick
     pkgs.fd
@@ -32,13 +22,19 @@ in {
     pkgs.ccls
     pkgs.gnumake
     pkgs.cmake
-    unstable.zed-editor
-#    (pkgs.emacsWithPackagesFromUsePackage {
-#      config = ~/.config/emacs/early-init.el;
-#      defaultInitFile = true;
-#      extraEmacsPackages = epkgs: [ epkgs.vterm ];
-#      package = pkgs.emacs-git;
-#    })
+
+    pkgs.ungoogled-chromium
   ];
+
+  services.emacs.enable = true;
+
+  programs.emacs = {
+    enable = true;
+    package = pkgs.emacs30;
+    extraPackages = epkgs: [
+      epkgs.vterm
+    ];
+  };
+  
 
 }

@@ -41,7 +41,9 @@
     neovim
     fzf
 
+
     # docker
     docker-compose
+    distrobox
   ];
 }

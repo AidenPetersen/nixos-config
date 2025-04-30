@@ -10,8 +10,13 @@
     tmux
     neovim
     stow
-    distrobox
     ripgrep
     fd
+    zip
+    unzip
+
+    # Needed to build vterm 
+    gcc
+    libtool
   ];
 }

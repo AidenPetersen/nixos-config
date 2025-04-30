@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     pkgs.oh-my-zsh
+    pkgs.xorg.xhost
   ];
   
   programs.zsh = {
@@ -14,7 +15,11 @@
   shellAliases = {
     vi = "nvim";
   };
-  # for direnv
-  initExtra = "eval \"$(direnv hook zsh)\"";
+  initExtra = 
+    # for direnv
+    "eval \"$(direnv hook zsh)\"";
+    # for vivado
+#    "xhost +si:localuser:$USER > /dev/null" + "\n" +
+#    "source ~/Xilinx/Vivado/2023.2/settings64.sh";
   };
 }
