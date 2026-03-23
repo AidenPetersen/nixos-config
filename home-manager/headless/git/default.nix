@@ -4,11 +4,9 @@
     enable = true;
 
     # User info
-    userName  = "Aiden Petersen";
-    userEmail = "AidenPetersen@protonmail.com";
-
-    # Extra git stuff
-    delta.enable = true;
+    settings.user.name  = "Aiden Petersen";
+    settings.user.email = "AidenPetersen@protonmail.com";
   };
   programs.gitui.enable = true;
+  programs.delta.enable = true;
 }
