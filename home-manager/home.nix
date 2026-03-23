@@ -5,8 +5,6 @@
     ./graphical
     ./languages
   ];
-  nixpkgs.config.allowUnfree = true;
-
   programs.home-manager.enable = true;
 
   manual.manpages.enable = true;
@@ -16,5 +14,5 @@
     homeDirectory = "/home/aidenp";
   };
 
-  home.stateVersion = "25.11";
+  home.stateVersion = "25.05";
 }
