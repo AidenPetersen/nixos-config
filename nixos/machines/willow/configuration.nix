@@ -2,8 +2,7 @@
 
 {
   imports = [
-      # TODO: generate with nixos-generate-config and add hardware-configuration.nix
-      # ./hardware-configuration.nix
+      ./hardware-configuration.nix
 
       # Users
       ../../modules/users/users.nix
