@@ -12,7 +12,9 @@
 
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }:
   let
-    mkHost = { system ? "x86_64-linux", nixosModules, hmModules ? [ ] }:
+    lib = nixpkgs.lib;
+
+    mkHost = { system ? "x86_64-linux", nixosModules, hmModules ? [ ], enableHm ? true }:
     let
       pkgs-unstable = import nixpkgs-unstable {
         inherit system;
@@ -22,15 +24,16 @@
     nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = { inherit pkgs-unstable; };
-      modules = nixosModules ++ [
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.aidenp = { imports = [ ./home/home.nix ] ++ hmModules; };
-          home-manager.extraSpecialArgs = { inherit pkgs-unstable; };
-        }
-      ];
+      modules = nixosModules
+        ++ lib.optionals enableHm [
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.aidenp = { imports = [ ./home/home.nix ] ++ hmModules; };
+            home-manager.extraSpecialArgs = { inherit pkgs-unstable; };
+          }
+        ];
     };
   in
   {
@@ -38,7 +41,10 @@
       oak = mkHost {
         nixosModules = [ ./nixos/machines/oak/configuration.nix ];
       };
-      # cedar = mkHost { nixosModules = [ ./nixos/machines/cedar/configuration.nix ]; };
+      cedar = mkHost {
+        nixosModules = [ ./nixos/machines/cedar/configuration.nix ];
+        enableHm = false;
+      };
       # willow = mkHost { nixosModules = [ ./nixos/machines/willow/configuration.nix ]; };
       # rowan = mkHost { nixosModules = [ ./nixos/machines/rowan/configuration.nix ]; };
     };
