@@ -10,8 +10,9 @@ in {
    
     pkgs.vlc
 
-    pkgs.gnome3.gnome-tweaks
-    pkgs.nerdfonts
+    pkgs.gnome-tweaks
+    pkgs.nerd-fonts._0xproto
+    pkgs.nerd-fonts.droid-sans-mono
 
     pkgs.libvterm
 
@@ -23,18 +24,7 @@ in {
     pkgs.gnumake
     pkgs.cmake
 
-    pkgs.ungoogled-chromium
+    pkgs.emacs
+#    pkgs.ungoogled-chromium
   ];
-
-  services.emacs.enable = true;
-
-  programs.emacs = {
-    enable = true;
-    package = pkgs.emacs30;
-    extraPackages = epkgs: [
-      epkgs.vterm
-    ];
-  };
-  
-
 }

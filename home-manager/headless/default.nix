@@ -2,7 +2,7 @@
 {
   imports = [
     ./git
-    ./zsh
+    ./bash
   ];
   home.packages = with pkgs; [
     htop

@@ -49,13 +49,14 @@
 
   # Networking
   networking.networkmanager.enable = true; # Enable network manager
-  networking.hostName = "nixbox"; # Define your hostname.
+  networking.hostName = "oak"; # Define your hostname.
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.utf8";
+  i18n.defaultLocale = "en_US.UTF-8";
+
 
   # Keep up to date
   system.autoUpgrade.enable = true;
@@ -73,5 +74,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 }
