@@ -27,7 +27,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.aidenp = { imports = [ ./home-manager/home.nix ] ++ hmModules; };
+          home-manager.users.aidenp = { imports = [ ./home/home.nix ] ++ hmModules; };
           home-manager.extraSpecialArgs = { inherit pkgs-unstable; };
         }
       ];
