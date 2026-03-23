@@ -2,6 +2,6 @@
 {
   # Change per machine
   imports = [
-    ./machines/nixbox/configuration.nix
+    ./machines/oak/configuration.nix
   ];
 }

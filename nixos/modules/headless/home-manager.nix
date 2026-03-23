@@ -1,4 +1,4 @@
-{config, pkgs, ... }:
+{ ... }:
 {
-  imports = [ <home-manager/nixos> ];
+  # Home Manager is now provided by flake.nix
 }

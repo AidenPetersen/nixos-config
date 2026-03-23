@@ -1,1 +1,1 @@
-sudo nixos-rebuild switch -I nixos-config=/home/aidenp/config/nixos/configuration.nix --upgrade
+sudo nixos-rebuild switch --flake /home/aidenp/nixos-config#oak
