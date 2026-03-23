@@ -45,7 +45,9 @@
         nixosModules = [ ./nixos/machines/cedar/configuration.nix ];
         enableHm = false;
       };
-      # willow = mkHost { nixosModules = [ ./nixos/machines/willow/configuration.nix ]; };
+      willow = mkHost {
+        nixosModules = [ ./nixos/machines/willow/configuration.nix ];
+      };
       # rowan = mkHost { nixosModules = [ ./nixos/machines/rowan/configuration.nix ]; };
     };
   };
