@@ -1,7 +1,5 @@
-{config, pkgs, callPackage, ... }:
-let
-  unstable = import <nixpkgs> { config = { allowUnfree = true; }; };
-in {
+{ config, pkgs, ... }:
+{
   imports = [
   ];
 
