@@ -18,9 +18,6 @@
       # AMD drivers
       ../../modules/hardware/amd.nix
 	
-      # FPGA stuff 
-      ../../modules/hardware/xilinx.nix
- 
       # Desktop and Gnome stuff
       ../../modules/graphical/desktop.nix
       ../../modules/graphical/packages.nix
