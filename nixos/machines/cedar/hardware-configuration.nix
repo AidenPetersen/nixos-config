@@ -42,6 +42,11 @@
       fsType = "btrfs";
     };
 
+  fileSystems."/storage_mirror" =
+    { device = "/dev/disk/by-uuid/35ab9e36-0f98-4052-904d-d0c256fc12eb";
+      fsType = "btrfs";
+    };
+
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 {
 
   # Service user
@@ -85,14 +85,34 @@
     openInternalFirewall = true;
   };
 
-  # dashboard
-  services.dashy.enable = true;
+ # silverbullet
+  services.silverbullet = {
+    enable = true;
+    package = pkgs-unstable.silverbullet;
+
+    listenPort = 3000;
+    listenAddress = "0.0.0.0";
+    openFirewall = true;
+
+    spaceDir = "/storage_mirror/notes";
+  };
+
 
   virtualisation.docker.enable = true;
   virtualisation.docker.storageDriver = "btrfs";
 
+  # immich image hosting
+  services.immich.enable = true; 
+  services.immich.port = 2283;
+  services.immich.host = "0.0.0.0";
+  services.immich.group = "media";
+  services.immich.openFirewall = true;
+  services.immich.mediaLocation = "/storage_mirror/immich";
 
-  # home assistant
+
+
+
+  # Containers
   virtualisation.oci-containers = {
     backend = "podman";
     containers.homeassistant = {
@@ -105,6 +125,17 @@
         "--network=host"
         # Pass devices into the container, so Home Assistant can discover and make use of them
         "--device=/dev/ttyUSB0:/dev/ttyUSB0"
+      ];
+    };
+    containers.adventurelog = {
+      
+      volumes = [ "adventure-log:/config" ];
+      environment.TZ = "America/Chicago";
+      # Note: The image will not be updated on rebuilds, unless the version label changes
+      image = "ghcr.io/home-assistant/home-assistant:stable";
+      extraOptions = [
+        # Use the host network namespace for all sockets
+        "--network=host"
       ];
     };
   };
