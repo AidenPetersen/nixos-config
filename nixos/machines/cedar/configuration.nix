@@ -16,6 +16,9 @@
       ../../modules/nas/networking.nix
       ../../modules/nas/fail2ban.nix
       ../../modules/nas/caddy.nix
+      ../../modules/nas/glance.nix
+      ../../modules/nas/nfs.nix
+
       ../../modules/hardware/intel_gpu.nix
 
       # Shared modules

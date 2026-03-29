@@ -1,4 +1,5 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
+
 {
 
   # Service user
@@ -85,13 +86,21 @@
     openInternalFirewall = true;
   };
 
-  # dashboard
-  services.dashy.enable = true;
-
   virtualisation.docker.enable = true;
   virtualisation.docker.storageDriver = "btrfs";
 
+  # immich image hosting
+  services.immich.enable = true; 
+  services.immich.port = 2283;
+  services.immich.host = "0.0.0.0";
+  services.immich.group = "media";
+  services.immich.openFirewall = true;
+  services.immich.mediaLocation = "/storage_mirror/immich";
 
+
+
+
+  # Containers
   # home assistant
   virtualisation.oci-containers = {
     backend = "podman";
@@ -108,5 +117,4 @@
       ];
     };
   };
-
 }
