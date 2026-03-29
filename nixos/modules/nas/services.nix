@@ -1,4 +1,5 @@
 { config, pkgs, pkgs-unstable, ... }:
+
 {
 
   # Service user
@@ -85,19 +86,6 @@
     openInternalFirewall = true;
   };
 
- # silverbullet
-  services.silverbullet = {
-    enable = true;
-    package = pkgs-unstable.silverbullet;
-
-    listenPort = 3000;
-    listenAddress = "0.0.0.0";
-    openFirewall = true;
-
-    spaceDir = "/storage_mirror/notes";
-  };
-
-
   virtualisation.docker.enable = true;
   virtualisation.docker.storageDriver = "btrfs";
 
@@ -113,6 +101,7 @@
 
 
   # Containers
+  # home assistant
   virtualisation.oci-containers = {
     backend = "podman";
     containers.homeassistant = {
@@ -127,17 +116,5 @@
         "--device=/dev/ttyUSB0:/dev/ttyUSB0"
       ];
     };
-    containers.adventurelog = {
-      
-      volumes = [ "adventure-log:/config" ];
-      environment.TZ = "America/Chicago";
-      # Note: The image will not be updated on rebuilds, unless the version label changes
-      image = "ghcr.io/home-assistant/home-assistant:stable";
-      extraOptions = [
-        # Use the host network namespace for all sockets
-        "--network=host"
-      ];
-    };
   };
-
 }
