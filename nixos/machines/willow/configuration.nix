@@ -21,6 +21,7 @@
       ../../modules/services/docker.nix
       ../../modules/services/flatpak.nix
       ../../modules/services/mullvad.nix
+      ../../modules/services/tailscale.nix
 
       # Nix config
       ../../modules/nix/config.nix

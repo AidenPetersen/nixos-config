@@ -42,4 +42,8 @@
     docker-compose
     distrobox
   ];
+
+  # nfs
+  boot.supportedFilesystems = [ "nfs" ];
+  services.rpcbind.enable = true;
 }

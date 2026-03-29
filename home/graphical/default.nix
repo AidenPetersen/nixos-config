@@ -23,6 +23,8 @@
     pkgs.cmake
 
     pkgs.emacs
+    pkgs.obsidian
+    pkgs.darktable
 #    pkgs.ungoogled-chromium
   ];
 }
