@@ -43,8 +43,11 @@
     nettools
     python3
     go
+    nss
     recyclarr
   ];
+
+  networking.tempAddresses = "disabled";
 
   services.openssh.enable = true;
 

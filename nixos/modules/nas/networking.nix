@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   # firewall rules
-  networking.firewall = {
+   networking.firewall = {
     enable = true;
     allowedTCPPorts = [
       6789 # nzbget
@@ -22,6 +22,6 @@
     ];
     # for wireguard
     checkReversePath = false;
-
   };
+  networking.nftables.enable = true;
 }
