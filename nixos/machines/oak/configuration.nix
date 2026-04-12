@@ -22,6 +22,7 @@
       ../../modules/graphical/desktop.nix
       ../../modules/graphical/packages.nix
       ../../modules/graphical/steam.nix
+      ../../modules/graphical/eden.nix
       
       # Headless programs
       ../../modules/headless/packages.nix
@@ -33,6 +34,7 @@
       ../../modules/services/docker.nix
       ../../modules/services/flatpak.nix
       ../../modules/services/mullvad.nix
+      ../../modules/services/sunshine.nix
       # ../../modules/services/syncthing.nix
       # ../../modules/services/ssh.nix
       
