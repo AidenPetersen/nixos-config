@@ -10,6 +10,7 @@
       # Desktop and Gnome
       ../../modules/graphical/desktop.nix
       ../../modules/graphical/packages.nix
+      ../../modules/graphical/moonlight.nix
 
       # Headless programs
       ../../modules/headless/packages.nix
