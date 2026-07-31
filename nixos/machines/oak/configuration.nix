@@ -22,7 +22,7 @@
       ../../modules/graphical/desktop.nix
       ../../modules/graphical/packages.nix
       ../../modules/graphical/steam.nix
-      ../../modules/graphical/eden.nix
+      ../../modules/graphical/ryubing.nix
       
       # Headless programs
       ../../modules/headless/packages.nix
@@ -45,7 +45,10 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
+  boot.kernelParams = [
+    "amdgpu.virtual_display=0000:13:00.0,1"
+  ];
+  
   # Networking
   networking.networkmanager.enable = true; # Enable network manager
   networking.hostName = "oak"; # Define your hostname.

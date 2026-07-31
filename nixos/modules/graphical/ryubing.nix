@@ -1,6 +1,6 @@
 { config, pkgs, pkgs-unstable, ... }:
 {
   environment.systemPackages = [
-    pkgs-unstable.eden
+    pkgs.ryubing
   ];
 }
